@@ -69,8 +69,8 @@ class WebsiteMonitor {
 
         await this.playSound("success");
       } else {
-        await this.playSound("error");
         console.log("No new headlines detected");
+        // await this.playSound("error");
       }
     } catch (error) {
       console.error("Error during update check:", error);
@@ -132,7 +132,7 @@ class WebsiteMonitor {
   private async playSound(mode: "success" | "start" | "error"): Promise<void> {
     const soundFilename =
       mode === "success"
-        ? "./sounds/wee-woo.mp3"
+        ? "./sounds/alert.mp3"
         : mode === "start"
         ? "./sounds/start.mp3"
         : "./sounds/error.mp3";
