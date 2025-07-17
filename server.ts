@@ -180,7 +180,7 @@ const fastify = Fastify({ logger: true });
 // Configuration
 const TARGET_URL =
   process.env.TARGET_URL ||
-  "https://www.willhaben.at/iad/immobilien/mietwohnungen/mietwohnung-angebote?areaId=117223&areaId=117225&areaId=117226&areaId=117227&areaId=117228&areaId=117229&areaId=117237&ESTATE_SIZE/LIVING_AREA_FROM=35&sfId=b4bea2d3-89cc-4ca8-9b31-dff41d00d387&page=1&rows=30&PRICE_TO=900&searchKey=131&isNavigation=true";
+  "https://www.willhaben.at/iad/immobilien/mietwohnungen/mietwohnung-angebote?areaId=117223&areaId=117225&areaId=117226&areaId=117227&areaId=117228&areaId=117229&areaId=117237&ESTATE_SIZE/LIVING_AREA_FROM=42&sfId=b4bea2d3-89cc-4ca8-9b31-dff41d00d387&page=1&rows=30&PRICE_TO=900&searchKey=131&isNavigation=true";
 const PORT = parseInt(process.env.PORT || "4567");
 
 // Initialize monitor
