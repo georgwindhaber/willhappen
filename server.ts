@@ -30,7 +30,7 @@ class WebsiteMonitor {
     // Set up interval for every 5 minutes (300000ms)
     this.intervalId = setInterval(async () => {
       await this.checkForUpdates();
-    }, 300000);
+    }, 1000 * 60 * 3.5);
   }
 
   stop(): void {
@@ -68,6 +68,7 @@ class WebsiteMonitor {
         console.log("New headlines:", newHeadlines);
 
         await this.playSound("success");
+        await this.playSound("start");
       } else {
         console.log("No new headlines detected");
         // await this.playSound("error");
