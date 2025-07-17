@@ -27,7 +27,7 @@ class WebsiteMonitor {
     // Run initial check
     await this.checkForUpdates();
 
-    // Set up interval for every 5 minutes (300000ms)
+    // Set up interval for every 3.5 minutes
     this.intervalId = setInterval(async () => {
       await this.checkForUpdates();
     }, 1000 * 60 * 3.5);
