@@ -150,24 +150,14 @@ class WebsiteMonitor {
       } else if (platform === "win32") {
         // Windows
         execSync(
-          'powershell -c (New-Object Media.SoundPlayer "C:\\Windows\\Media\\notify.wav").PlaySync();',
+          `powershell -c (New-Object Media.SoundPlayer "${soundFilename}").PlaySync();`,
           { stdio: "ignore" }
         );
       } else if (platform === "linux") {
-        // Linux (requires paplay/pulseaudio or aplay/alsa)
-        try {
-          execSync("paplay /usr/share/sounds/alsa/Front_Left.wav", {
-            stdio: "ignore",
-          });
-        } catch {
-          try {
-            execSync("aplay /usr/share/sounds/alsa/Front_Left.wav", {
-              stdio: "ignore",
-            });
-          } catch {
-            console.log("🔔  (Could not play sound)");
-          }
-        }
+        // Linux (requires ffplay (included in ffmpeg))
+        execSync(`ffplay -v 0 -nodisp -autoexit ${soundFilename}`, {
+          stdio: "ignore",
+        });
       }
     } catch (error) {
       console.log("🔔 (Could not play sound)");
