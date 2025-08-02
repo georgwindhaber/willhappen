@@ -6,6 +6,11 @@ import {
 import { fetchWebsiteContent } from "./helpers/scraper.ts";
 import { extractDataFromWillhabenSearch } from "./helpers/willhaben.ts";
 
+const config = {
+  checkIntervalMinutes: 3,
+  storageDirectory: "./storage",
+};
+
 const searches = [
   {
     name: "Primary",
@@ -35,12 +40,12 @@ if (import.meta.main) {
     const appartmentData = extractDataFromWillhabenSearch(websiteHtml);
 
     for (const appartment of appartmentData) {
-      // console.log(appartment);
-      await sendDiscordNotification(
-        searches[0].discordWebhookUrl,
+      console.log(appartment);
+      // await sendDiscordNotification(
+      //   searches[0].discordWebhookUrl,
 
-        createDiscordEmbed(appartment)
-      );
+      //   createDiscordEmbed(appartment)
+      // );
     }
   } else {
     console.error("Could not query", searches[0].name);
